@@ -1,8 +1,9 @@
 import React from "react";
-import MainNav from "../component/MainNav";
 import styled from "styled-components";
 
+import MainNavBar from "../component/MainNavBar";
 import Accordion from "../component/Accordian";
+import Footer from "../component/Footer";
 
 const Home = () => {
   const Container = styled.div``;
@@ -150,7 +151,7 @@ const Home = () => {
   `;
 
   const ServiceSection = styled.section`
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.grey};
     padding: 50px 0;
   `;
 
@@ -172,7 +173,7 @@ const Home = () => {
   `;
   return (
     <>
-      <MainNav />
+      <MainNavBar/>
       <Container>
         <HeroSection>
           <Header>
@@ -287,6 +288,7 @@ const Home = () => {
             </ServiceDiv>
           </ServiceWrapper>
         </ServiceSection>
+        <Footer/>
       </Container>
     </>
   );
