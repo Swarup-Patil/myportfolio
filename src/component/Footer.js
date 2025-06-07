@@ -20,7 +20,6 @@ const FooterHeader = styled.h1`
 `;
 
 const FooterMail = styled.a`
-  /* margin-left: 20px; */
   cursor: pointer;
   color: ${(props) => props.theme.colors.background} !important;
   position: relative;
@@ -73,12 +72,11 @@ const ContactTag = styled.a`
   }
 `;
 
-const Footer = () => {
+const Footer = ({Header}) => {
   return (
     <FooterSection>
       <FooterWrapper>
-        <FooterHeader>
-          I'm always interested about cool stuff. Are you minding a project?
+        <FooterHeader>{Header} &nbsp;
           <FooterMail href="mailto:swarupaa619yes@gmail.com">
             Let's talk.
           </FooterMail>

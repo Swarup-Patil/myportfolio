@@ -288,7 +288,7 @@ const Home = () => {
             </ServiceDiv>
           </ServiceWrapper>
         </ServiceSection>
-        <Footer/>
+        <Footer Header="I'm always interested about cool stuff. Are you minding a project?"/>
       </Container>
     </>
   );
