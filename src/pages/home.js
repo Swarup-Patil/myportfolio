@@ -226,7 +226,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            <Downloadtag underline href="/Resume.pdf" target="_blank" rel="noopener noreferrer">Get Resume</Downloadtag>
+            <Downloadtag underline href="https://drive.google.com/file/d/1Lt240OUP-IWacEMgu8e2qMHaKTVU3O30/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Get Resume</Downloadtag>
             <Downloadtag fadeLine href="mailto:swarupaa619yes@gmail.com">Lets' Talk</Downloadtag>
           </DownloadButton>
         </HeroSection>

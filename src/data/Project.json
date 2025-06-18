@@ -3,7 +3,7 @@
     "title": "Jio Knowledgebase - A central document management system for Jio teams to upload, verify, and access technical knowledge and operational flows efficiently.",
     "description": "Backend Development | MongoDB Data Modeling | Role-Based Access | Dashboard Insights | Azure DevOps CI/CD | Kubernetes Deployment",
     "imageSrc": "Frame.png",
-    "link":"/kbreport.pdf",
+    "link":"https://drive.google.com/file/d/1fEp0mFX84Sz8nyHEQrI-qEm5omTfkrct/view?usp=drive_link",
     "icons": [
       "https://cdn.simpleicons.org/react",
       "https://cdn.simpleicons.org/express",
@@ -19,7 +19,7 @@
     "title": "Jio Automation Portal - An automation portal to run API & UI test flows, submit test cases, and track reports.",
     "description": "Dynamic Script Execution | File Upload APIs | Real-Time Logs | Test History | Azure CI/CD | Kubernetes Deployment",
     "imageSrc": "automation.png",
-    "link":"/automation.pdf",
+    "link":"https://drive.google.com/file/d/1ntRHgx55W7vSWnlDEhGvmPwISf88j_Te/view?usp=drive_link",
     "icons": [
       "https://cdn.simpleicons.org/react",
       "https://cdn.simpleicons.org/express",
