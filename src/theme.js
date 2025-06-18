@@ -18,8 +18,8 @@ const theme = {
     orange: "#ff5741",
     grey: "#464d51",
   },
-  mediaQueries: {
-    xs: "(max-width: 480px)",
+  MediaQueries: {
+    xs: "(max-width: 576px)",
     sm: "(max-width: 768px)",
     md: "(max-width: 1024px)",
     lg: "(max-width: 1200px)",

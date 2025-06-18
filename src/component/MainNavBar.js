@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = styled.div`
   display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.caslon};
   color: ${(props) => props.theme.colors.primary};
   padding: 40px 50px;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    padding: 20px 30px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    padding: 20px 10px;
+  }
 `;
 
 const SubNav = styled.ul`
@@ -16,13 +27,11 @@ const SubNav = styled.ul`
 `;
 
 const NavList = styled.li`
-  font-size: ${(props) => (props.Logo ? "30px" : "20px")};
+  font-size: 30px;
   margin-right: 30px;
-  font-weight: ${(props) => (props.Logo ? "600" : "200")};
+  font-weight: 600;
   cursor: pointer;
-  z-index: ${(props) => (props.above ? "5" : "0")};
-  display: flex;
-  align-items: center;
+  z-index: 5;
   transition: color 0.3s ease-in-out;
   transition-delay: 0.3s;
 
@@ -32,11 +41,56 @@ const NavList = styled.li`
         ? props.theme.colors.background
         : props.theme.colors.primary
       : props.theme.colors.primary};
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 24px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    font-size: 22px;
+    margin-right: 0;
+  }
 `;
 
-const Boldheader = styled.span`
-  font-weight: 600;
+const NavItem = styled(Link)`
+  font-size: 16px;
+  margin-right: 30px;
+  font-weight: 200;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: ${(props) => props.theme.colors.primary};
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 40%;
+    width: ${(props) => (props.active ? "100%" : "0")};
+    height: 2px;
+    background-color: ${(props) => props.theme.colors.primary};
+    transform: translateX(0);
+    transition: width 0.4s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    display: none;
+  }
 `;
+
 
 const BurgerWrapper = styled.button`
   background-color: transparent;
@@ -48,6 +102,7 @@ const BurgerWrapper = styled.button`
   margin-left: 5px;
   width: 35px;
   height: 35px;
+  display: none;
 
   svg {
     width: 100%;
@@ -93,6 +148,10 @@ const BurgerWrapper = styled.button`
     stroke-dashoffset: -134;
     stroke: white;
   }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    display: block;
+  }
 `;
 
 const SlideMenu = styled.section`
@@ -102,105 +161,76 @@ const SlideMenu = styled.section`
   position: fixed;
   top: 0;
   right: ${(props) => (props.isOpen ? "0%" : "-100%")};
-  z-index: 1;
+  z-index: 2;
   transition: right 0.5s ease-in-out;
 `;
 
 const NavbarInner = styled.div`
-  display: flex;
   width: 100%;
   height: 100vh;
-  position: absolute;
+  /* position: absolute; */
   top: 0;
-  font-family: ${(props) => props.theme.fonts.graphik};
+  font-family: ${(props) => props.theme.fonts.caslon};
   color: ${(props) => props.theme.colors.background};
 `;
 
 const NavWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 70%;
   height: 100%;
-  margin: 0 auto;
-`;
-
-const Column = styled.div`
-  width: 50%;
-  height: 50%;
+  margin: 100px auto 10px;
 `;
 
 const NavListDiv = styled.ul`
   display: flex;
-  flex-direction: ${(props) => (props.row ? "row" : "column")};
-  align-items: ${(props) => (props.end ? "flex-end" : "flex-start")};
+  flex-direction: column;
   justify-content: flex-start;
   color: ${(props) => props.theme.colors.background};
   margin-bottom: 30px;
 `;
 
-const NavTags = styled.li`
-  font-size: ${(props) => {
-    if (props.large) return "110px";
-    else if (props.mid) return "32px";
-    else return "20px";
-  }};
+const NavTags = styled(Link)`
+  width: fit-content;
+  font-size: 45px;
   position: relative;
-  font-weight: ${(props) => (props.large ? "500" : "200")};
-  margin-bottom: ${(props) => (props.large ? "20px" : "0")};
+  font-weight: 500;
+  margin-bottom: 40px;
   margin-right: 20px;
-  margin-top: ${(props) => (props.small ? "30px" : "0")};
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: ${(props) => props.theme.colors.background};
-    transition: width 0.5s ease-in-out;
-  }
-
-  &:hover::after {
-    width: 100%;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: ${(props) => props.theme.colors.background};
   }
 `;
 
-const Subtag = styled.li`
-  font-size: 20px;
-  margin-top: 30px;
-  font-weight: 200;
+const NavNumber = styled.p`
+  position: absolute;
+  color: ${(props) => props.theme.colors.grey};
+  font-size: 12px;
+  top: -5px;
+  left: -20px;
 `;
 
-const SubtagWrapper = styled.div`
+const SubFooter = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  animation: fadeIn 0.5s ease-in-out;
-  margin-top: 0px;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
-const ServiceWrapper = styled.div`
+const FooterContent = styled.p`
+  font-size: 12px;
   position: relative;
-  display: inline-block;
+  color: ${(props) =>
+  props.Heading ? props.theme.colors.background : props.theme.colors.grey};
+  margin-top: ${(props) => (props.Heading ? "20px" : "5px")};
+  cursor: ${(props) => (props.Heading ? "default" : "pointer")};
+  margin-right: 10px;
 `;
 
 const MainNavBar = () => {
-  const [showServices, setShowServices] = useState(false);
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -212,65 +242,58 @@ const MainNavBar = () => {
           </NavList>
         </SubNav>
         <SubNav>
-          <NavList>
-            &lt;<Boldheader>Developer</Boldheader>/&gt;
-          </NavList>
-          <NavList above>
-            <BurgerWrapper
-              className={isOpen ? "opened" : ""}
-              onClick={() => setIsOpen((prev) => !prev)}
-              aria-label="Main Menu"
-              aria-expanded={isOpen}
-            >
-              <svg viewBox="0 0 100 100">
-                <path
-                  className="line line1"
-                  d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
-                />
-                <path className="line line2" d="M 20,50 H 80" />
-                <path
-                  className="line line3"
-                  d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
-                />
-              </svg>
-            </BurgerWrapper>
-          </NavList>
+          <NavItem to="/" active={isActive("/")}>
+            Home
+          </NavItem>
+          <NavItem to="/portfolio" active={isActive("/portfolio")}>
+            Work
+          </NavItem>
+          <NavItem to="/about" active={isActive("/about")}>
+            About
+          </NavItem>
+          <BurgerWrapper
+            className={isOpen ? "opened" : ""}
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Main Menu"
+            aria-expanded={isOpen}
+          >
+            <svg viewBox="0 0 100 100">
+              <path
+                className="line line1"
+                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+              />
+              <path className="line line2" d="M 20,50 H 80" />
+              <path
+                className="line line3"
+                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+              />
+            </svg>
+          </BurgerWrapper>
         </SubNav>
       </Navbar>
 
       <SlideMenu isOpen={isOpen}>
         <NavbarInner>
           <NavWrapper>
-            <Column>
-              <NavListDiv>
-                <ServiceWrapper
-                  onMouseEnter={() => setShowServices(true)}
-                  onMouseLeave={() => setShowServices(false)}
-                >
-                  <NavTags large>Services</NavTags>
-                </ServiceWrapper>
-                <NavTags large>Portfolio</NavTags>
-                <NavTags large>About</NavTags>
-              </NavListDiv>
-              <NavListDiv row>
-                <NavTags mid>Github</NavTags>
-                <NavTags mid>LinkedIn</NavTags>
-                <NavTags mid>Mail</NavTags>
-              </NavListDiv>
-            </Column>
-            <Column>
-              <NavListDiv end>
-                {showServices && (
-                  <SubtagWrapper>
-                    <Subtag>Backend Development</Subtag>
-                    <Subtag>Frontend Development</Subtag>
-                    <Subtag>Database Design & Optimization</Subtag>
-                    <Subtag>Authentication & Authorization</Subtag>
-                    <Subtag>DevOps & Deployment</Subtag>
-                  </SubtagWrapper>
-                )}
-              </NavListDiv>
-            </Column>
+            <NavListDiv>
+              <NavTags to="/" active={isActive("/")}>
+                Home <NavNumber>01</NavNumber>
+              </NavTags>
+              <NavTags to="/portfolio" active={isActive("/portfolio")}>
+                Portfolio <NavNumber>02</NavNumber>
+              </NavTags>
+              <NavTags to="/about" active={isActive("/about")}>
+                About <NavNumber>03</NavNumber>
+              </NavTags>
+            </NavListDiv>
+            <FooterContent Heading>Cotact —</FooterContent>
+            <FooterContent>swaruppatil@gmail.com</FooterContent>
+            <FooterContent>+91 7208877440</FooterContent>
+            <FooterContent Heading>Socials</FooterContent>
+            <SubFooter>
+              <FooterContent underline>linkedin</FooterContent>
+              <FooterContent underline>Instagram</FooterContent>
+            </SubFooter>
           </NavWrapper>
         </NavbarInner>
       </SlideMenu>

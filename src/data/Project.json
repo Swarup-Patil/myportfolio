@@ -1,0 +1,150 @@
+[
+  {
+    "title": "Jio Knowledgebase - A central document management system for Jio teams to upload, verify, and access technical knowledge and operational flows efficiently.",
+    "description": "Backend Development | MongoDB Data Modeling | Role-Based Access | Dashboard Insights | Azure DevOps CI/CD | Kubernetes Deployment",
+    "imageSrc": "Frame.png",
+    "link":"/kbreport.pdf",
+    "icons": [
+      "https://cdn.simpleicons.org/react",
+      "https://cdn.simpleicons.org/express",
+      "https://cdn.simpleicons.org/nodedotjs",
+      "https://cdn.simpleicons.org/mongodb",
+      "https://cdn.simpleicons.org/mysql",
+      "https://cdn.simpleicons.org/kubernetes",
+      "https://cdn.simpleicons.org/jsonwebtokens",
+      "https://cdn.simpleicons.org/postman"
+    ]
+  },
+  {
+    "title": "Jio Automation Portal - An automation portal to run API & UI test flows, submit test cases, and track reports.",
+    "description": "Dynamic Script Execution | File Upload APIs | Real-Time Logs | Test History | Azure CI/CD | Kubernetes Deployment",
+    "imageSrc": "automation.png",
+    "link":"/automation.pdf",
+    "icons": [
+      "https://cdn.simpleicons.org/react",
+      "https://cdn.simpleicons.org/express",
+      "https://cdn.simpleicons.org/nodedotjs",
+      "https://cdn.simpleicons.org/mongodb",
+      "https://cdn.simpleicons.org/mysql",
+      "https://cdn.simpleicons.org/python",
+      "https://cdn.simpleicons.org/kubernetes",
+      "https://cdn.simpleicons.org/nginx",
+      "https://cdn.simpleicons.org/pm2"
+    ]
+  },
+  {
+    "title": "College Student Portal - An online portal for SIES GST students that keeps you connected to the college from anywhere and everywhere!",
+    "description": "Events Calendar | Manage Announcements | Blogs Management | Notes Repository | Railway Concession Requests | User Authentication | Light & Dark Mode | Responsive Design",
+    "imageSrc": "pnc.png",
+    "link":"https://portal.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/react",
+      "https://cdn.simpleicons.org/nodedotjs",
+      "https://cdn.simpleicons.org/express",
+      "https://cdn.simpleicons.org/mongodb",
+      "https://cdn.simpleicons.org/styledcomponents",
+      "https://cdn.simpleicons.org/figma",
+      "https://cdn.simpleicons.org/axios",
+      "https://cdn.simpleicons.org/google",
+      "https://cdn.simpleicons.org/googleanalytics"
+    ]
+  },
+  {
+    "title": "Travel Log Application - A web-based travel log platform to log journeys, explore monuments via AR",
+    "description": "Google Authentication | Travel Blog Posting | AR Monument Viewer | Journey Logs | Virtual Revisit Experience |",
+    "imageSrc": "travellog.png",
+    "link":"https://github.com/Swarup-Patil/Travel-log-WebApp",
+    "icons": [
+      "https://cdn.simpleicons.org/ejs",
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/express",
+      "https://cdn.simpleicons.org/nodedotjs",
+      "https://cdn.simpleicons.org/mongodb",
+      "https://cdn.simpleicons.org/google",
+      "https://cdn.simpleicons.org/javascript"
+    ]
+  },
+
+  {
+    "title": "BugSquash is a project-building competition by SIES GST, where participants create innovative solutions to real-world problems.",
+    "description": "User Registration | User Sign-In | Team Management | Events Timeline | Event Overview | Partner & Sponsors | Seamless Navigation | Responsive Design",
+    "imageSrc": "bugsquash.png",
+    "link":"https://bugsquash.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/ejs",
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/express",
+      "https://cdn.simpleicons.org/javascript",
+      "https://cdn.simpleicons.org/mongoose",
+      "https://cdn.simpleicons.org/nodemon",
+      "https://cdn.simpleicons.org/figma"
+    ]
+  },
+  {
+    "title": "Promethean - A platform that celebrates innovation and engineering solutions to real-world problems.",
+    "description": "Real-World Problem Focus | Innovation-Driven | Responsive Design | Futuristic Theme | Deployed via GitHub Pages",
+    "imageSrc": "pormethean.jpg",
+    "link":"https://promethean.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/react",
+      "https://cdn.simpleicons.org/styledcomponents",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/github",
+      "https://cdn.simpleicons.org/githubpages"
+    ]
+  },
+  {
+    "title": "Bytecamp - A 24-hour long hackathon where you can brainstorm and create your own solutions to real-world problems.",
+    "description": "Event Overview | Event Timeline | Partner & Sponsors | Get in Touch | Responsive Design",
+    "imageSrc": "bytecamp.png",
+    "link":"https://bytecamp.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/javascript",
+      "https://cdn.simpleicons.org/bootstrap",
+      "https://cdn.simpleicons.org/figma"
+    ]
+  },
+   {
+    "title": "SIES Graduate School of Technology, in Navi Mumbai, offers quality engineering education across eight disciplines.",
+    "description": "About Us | Departments | Admissions | Campus life | Companies Who Recruit | Responsive Design",
+    "imageSrc": "sieshome.png",
+    "link":"https://home.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/figma",
+      "https://cdn.simpleicons.org/javascript",
+      "https://cdn.simpleicons.org/bootstrap"
+    ]
+  },
+  {
+    "title": "InternXpo by ISTE connects students with internship opportunities in companies, startups, and departmental projects across all domains.",
+    "description": "Event Overview | Event Timeline | Company Profiles | Brochure Access | Seamless Navigation | Responsive Design",
+    "imageSrc": "internxpo.png",
+    "link":"https://www.iste.siesgst.ac.in/index.html",
+    "icons": [
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/figma",
+      "https://cdn.simpleicons.org/javascript",
+      "https://cdn.simpleicons.org/bootstrap"
+    ]
+  },
+  {
+    "title": "TECHXTER is a National Level Paper Presentation fostering innovation, competence, and sustainable development in emerging technologies.",
+    "description": "Event Overview | Event Timeline | Partner & Sponsors | Testimonials | Get in Touch | Responsive Design",
+    "imageSrc": "techxter.png",
+    "link":"https://techxter.siesgst.ac.in/",
+    "icons": [
+      "https://cdn.simpleicons.org/html5",
+      "https://cdn.simpleicons.org/css",
+      "https://cdn.simpleicons.org/figma",
+      "https://cdn.simpleicons.org/javascript",
+      "https://cdn.simpleicons.org/bootstrap"
+    ]
+  }
+]

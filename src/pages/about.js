@@ -1,19 +1,105 @@
 import React from "react";
 import styled from "styled-components";
+import transition from "../Transition";
+import { TypeAnimation } from "react-type-animation";
 
 import MainNavBar from "../component/MainNavBar";
 import Footer from "../component/Footer";
 
+import Me from "../image/me.jpg";
+import webteam from "../image/webteam.jpg";
+import hoodie from "../image/hoodie.jpg";
+import jio from "../image/jio.png";
+import tea from "../image/tea.jpg";
+
 const AboutContainer = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
-  padding-bottom: 100px;
+  margin: 50px auto;
+  padding: 0 20px 100px 20px;
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    padding: 0 20px 50px 20px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    padding: 0 20px 0px 20px;
+  }
+`;
+
+const AboutFlex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: ${(props) => (props.End ? "0" : "150px")};
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    margin-bottom: ${(props) => (props.End ? "0" : "100px")};
+  }
+  @media ${(props) => props.theme.MediaQueries.xs} {
+     margin-bottom: ${(props) => (props.End ? "0" : "50px")};
+    flex-direction: ${(props) => (props.Column ? "column-reverse" : "column")};
+  }
 `;
 
 const AboutHeader = styled.h1`
-  font-size: 180px;
+  font-size: 55px;
   font-weight: 200;
   font-family: ${(props) => props.theme.fonts.caslon};
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 30px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    font-size: 20px;
+  }
+`;
+
+const MeImage = styled.img`
+  height: 500px;
+  width: auto;
+  margin-left: 30px;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    height: 400px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    margin-left: 0;
+    margin-top: 30px;
+    width: 100%;
+  }
+`;
+
+const TechImage = styled.img`
+  width: 550px;
+  height: auto;
+  margin-right: 30px;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    width: 350px;
+    margin-right: 0px;
+  }
+   @media ${(props) => props.theme.MediaQueries.xs} {
+    margin-top: 20px;
+    width: 100%;
+  }
+`;
+
+const Quote = styled.div`
+  font-size: 55px;
+  max-width: 1000px;
+  margin: 50px auto 100px;
+  font-family: ${(props) => props.theme.fonts.caslon};
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 30px;
+    max-width: 500px;
+    margin: 50px auto 100px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    font-size: 20px;
+    margin: 50px auto 50px;
+  }
 `;
 
 const AboutSubHeader = styled.h2`
@@ -21,13 +107,51 @@ const AboutSubHeader = styled.h2`
   max-width: 800px;
   margin: 30px 0;
   font-family: ${(props) => props.theme.fonts.caslon};
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 20px;
+    margin: 20px 0;
+    max-width: 500px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    font-size: 16px;
+  }
 `;
 
 const AboutPara = styled.p`
-  font-size: 24px;
-  max-width: 75%;
+  font-size: 20px;
+  max-width: 800px;
   margin-top: 30px;
-  line-height: 32px;
+  line-height: 35px;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 16px;
+    margin-top: 15px;
+    max-width: 500px;
+    line-height: 25px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    font-size: 12px;
+    line-height: 20px;
+  }
+`;
+
+const TeaImage = styled.img`
+  width: 500px;
+  height: auto;
+  margin-right: 50px;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    width: 300px;
+    margin-right: 20px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    width: 100%;
+    margin-right: 0
+  }
 `;
 
 const About = () => {
@@ -35,74 +159,101 @@ const About = () => {
     <>
       <MainNavBar />
       <AboutContainer>
-        <AboutHeader>About</AboutHeader>
-        <AboutSubHeader>
-          I’m Swarup — a developer who likes clean code, solid systems, and
-          building things that work.
-        </AboutSubHeader>
-        <AboutPara>
-          I started this journey back in 11th grade, when I wrote my first C++
-          program and realized how much I enjoyed solving problems with code.
-          That first line? <br />
-          cout &lt;&lt;"Hello World"; <br />
-          That line might’ve been small, but it opened a door I’ve been
-          exploring ever since.
-        </AboutPara>
-        <AboutPara>
-          In college, I found my footing in the Technical Team—drawn by hands-on
-          learning and the opportunity to build real things. I joined their Web
-          GDP program where I picked up the fundamentals of web development:
-          HTML, CSS, and REST APIs with Express.js. That’s where my journey into
-          full-stack development truly began.
-        </AboutPara>
-        <AboutPara>
-          Soon, I was part of a four-member team working to rebuild our
-          college’s outdated student portal using the MERN stack. Over six
-          months, we tackled everything—from user authentication and backend
-          logic to frontend integration and deployment. Six months, countless
-          bugs, and one-too-many all-nighters later, the portal went live… and
-          actually worked.
-        </AboutPara>
-        <AboutPara>
-          That experience didn’t just improve my coding—it taught me how to
-          build production-ready systems from the ground up.
-        </AboutPara>
-        <AboutPara>
-          This is one of my favourite quotes (by Ryan Dahl, Creator of Node.js):
-        </AboutPara>
-        <AboutSubHeader>
+        <AboutFlex>
+          <div>
+            <AboutHeader>
+              console.log("
+              <TypeAnimation sequence={[1000, "Swarup Patil"]} />
+              ");
+            </AboutHeader>
+            <AboutSubHeader>
+              Obsessed with JavaScript, performance, and second cups of tea.
+            </AboutSubHeader>
+
+            <AboutPara>
+              I started this journey back in 11th grade, when I wrote my first
+              C++ program and realized how much I enjoyed solving problems with
+              code. That first line? <br />
+              <br />
+              cout &lt;&lt;"Hello World"; <br />
+              <br />
+              That line might’ve been small, but it opened a door I’ve been
+              exploring ever since.
+            </AboutPara>
+          </div>
+          <MeImage src={Me} />
+        </AboutFlex>
+        <AboutFlex Column>
+          <div>
+            <TechImage src={webteam} />
+            <TechImage src={hoodie} />
+          </div>
+          <div>
+            <AboutPara>
+              In college, I found my footing in the Technical Team—drawn by
+              hands-on learning and the opportunity to build real things. I
+              joined their Web GDP program where I picked up the fundamentals of
+              web development: HTML, CSS, and REST APIs with Express.js. That’s
+              where my journey into full-stack development truly began.
+            </AboutPara>
+            <AboutPara>
+              Soon, I was part of a four-member team working to rebuild our
+              college’s outdated student portal using the MERN stack. Over six
+              months, we tackled everything—from user authentication and backend
+              logic to frontend integration and deployment. Six months,
+              countless bugs, and one-too-many all-nighters later, the portal
+              went live… and actually worked.
+            </AboutPara>
+            <AboutPara>
+              That experience didn’t just improve my coding—it taught me how to
+              build production-ready systems from the ground up.
+            </AboutPara>
+          </div>
+        </AboutFlex>
+        <Quote>
           “You can never understand everything. But, you should push yourself to
           understand the system.”
-        </AboutSubHeader>
+        </Quote>
         <AboutPara>
+          This is one of my favourite quotes (by Ryan Dahl, Creator of Node.js)
           That quote sticks with me. I don’t aim to master everything—but if
           something’s part of the system, I’ll figure out how it works.
         </AboutPara>
-        <AboutPara>
-          After graduation, I joined Jio as part of the DevOps team, but early
-          on, my manager recognized my strength in development and gave me the
-          opportunity to lead two major internal tools: a centralized Knowledge
-          Base for managing SOPs and workflows, and an Automation Portal for
-          streamlining sanity testing and database logging. While contributing
-          to deployments, I also got hands-on with Docker and Kubernetes, and
-          collaborated with teams to understand the backbone of scalable
-          infrastructure.
-        </AboutPara>
-        <AboutPara>
-          When I’m not debugging code, I’m probably watching Real Madrid
-          (Cristiano Ronaldo fan till I die), locking down sites in Valorant as
-          a Cypher main, or brewing yet another cup of tea pretending it’s “for
-          productivity.” <br />
-          <br />
-        </AboutPara>
-        <AboutSubHeader>
-          Football gives me passion, games give me edge, and tea… well, tea
-          gives me life.
-        </AboutSubHeader>
+        <AboutFlex>
+          <div>
+            <img src={jio} style={{ margin: "50px 0" }} alt="jio"/>
+            <AboutPara>
+              After graduation, I joined Jio as part of the DevOps team, but
+              early on, my manager recognized my strength in development and
+              gave me the opportunity to lead two major internal tools: a
+              centralized Knowledge Base for managing SOPs and workflows, and an
+              Automation Portal for streamlining sanity testing and database
+              logging. While contributing to deployments, I also got hands-on
+              with Docker and Kubernetes, and collaborated with teams to
+              understand the backbone of scalable infrastructure.
+            </AboutPara>
+          </div>
+        </AboutFlex>
+        <AboutFlex End>
+          <TeaImage src={tea} />
+          <div>
+            <AboutPara>
+              When I’m not debugging code, I’m probably watching Real Madrid
+              (Cristiano Ronaldo fan till I die), locking down sites in Valorant
+              as a Cypher main, or brewing yet another cup of tea pretending
+              it’s “for productivity.” <br />
+              <br />
+            </AboutPara>
+            <Quote>
+              Football gives me passion, games give me edge, and tea… well, tea
+              gives me life.
+            </Quote>
+          </div>
+        </AboutFlex>
       </AboutContainer>
       <Footer Header="Got code, chaos, or chai on your mind? Same here" />
     </>
   );
 };
 
-export default About;
+export default transition(About);

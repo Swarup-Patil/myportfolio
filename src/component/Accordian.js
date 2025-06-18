@@ -6,6 +6,14 @@ const AccordionSection = styled.div`
   padding: 50px;
   border-top: 1px solid ${(props) => props.theme.colors.background};
   border-bottom: 1px solid ${({ theme }) => theme.colors.background};
+
+    @media ${(props) => props.theme.MediaQueries.sm} {
+        padding: 30px;
+    }
+
+    @media ${(props) => props.theme.MediaQueries.xs} {
+        padding: 20px 10px;
+    }
 `;
 
 const AccordionHeader = styled.div`
@@ -20,16 +28,27 @@ const AccordionHeader = styled.div`
 const AccordionNumber = styled.div`
   font-size: 24px;
   color: ${(props) => props.theme.colors.background};
+  @media ${(props) => props.theme.MediaQueries.xs} {
+      font-size: 16px;
+    }
 `;
 
 const AccordionTitle = styled.div`
   margin-left: 30px;
+  font-size: 24px;
+  @media ${(props) => props.theme.MediaQueries.xs} {
+      font-size: 16px;
+      margin-left: 10px;
+    }
 `;
 
 const AccordionIcon = styled.div`
   font-size: 24px;
   transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
   transition: transform 0.3s ease;
+  @media ${(props) => props.theme.MediaQueries.xs} {
+      font-size: 16px;
+    }
 `;
 
 const AccordionContent = styled.div`
@@ -38,12 +57,20 @@ const AccordionContent = styled.div`
   transition: all 0.5s ease-in-out;
   padding: ${({ isOpen }) => (isOpen ? '30px 0' : '0')};
   margin-left: 56.5px;
+  @media ${(props) => props.theme.MediaQueries.xs} {
+       margin-left: 26.5px;
+        padding: ${({ isOpen }) => (isOpen ? '20px 0' : '0')};
+    }
 `;
 
 const AccordionText = styled.p`
   color: ${(props) => props.theme.colors.background};
   font-size: 20px;
   line-height: 30px;
+  @media ${(props) => props.theme.MediaQueries.xs} {
+      font-size: 14px;
+      line-height: 25px;
+  }
 `;
 
 const Accordion = ({ number, title, children }) => {

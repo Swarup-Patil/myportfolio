@@ -1,23 +1,146 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+
+// === Motion Variants ===
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
 
 const FooterSection = styled.section`
   background-color: ${(props) => props.theme.colors.primary};
-  /* height: 50vh; */
   color: ${(props) => props.theme.colors.background};
 `;
 
 const FooterWrapper = styled.div`
   padding: 50px 0;
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    max-width: 700px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    max-width: 300px;
+  }
 `;
 
-const FooterHeader = styled.h1`
+const FooterHeader = styled(motion.h1)`
   font-family: ${(props) => props.theme.fonts.caslon};
-  font-size: 80px;
+  font-size: 50px;
   font-weight: 100;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    max-width: 500px;
+    font-size: 30px;
+  }
 `;
+
+const FooterContact = styled(motion.div)`
+  display: flex;
+  margin-top: 80px;
+  justify-content: space-between;
+  padding: 0 20px;
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    flex-direction: column;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    margin-top: 30px;
+  }
+`;
+
+const SubFooter = styled.div`
+  display: flex;
+  margin-top: 10px;
+  flex-direction: ${(props) => (props.contact ? "column" : "row")};
+`;
+
+const FooterContent = styled.a`
+  font-size: 16px;
+  position: relative;
+  margin-bottom: 10px;
+  color: ${(props) =>
+    props.Heading
+      ? props.theme.colors.background
+      : props.theme.colors.grey} !important;
+  margin-right: 10px;
+  cursor: ${(props) => (props.Heading ? "default" : "pointer")};
+
+  &::after {
+    content: ${(props) => (props.underline ? '""' : "none")};
+    position: absolute;
+    width: 0%;
+    height: 0.5px;
+    bottom: 0;
+    left: 0;
+    background-color: ${(props) => props.theme.colors.grey};
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: ${(props) => (props.underline ? "100%" : "0")};
+  }
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 14px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    margin-top: ${(props) => (props.Heading ? "20px" : "0")};
+    font-size: 12px;
+  }
+`;
+
+const FooterLink = styled(Link)`
+  font-size: 16px;
+  position: relative;
+  margin-bottom: 5px !important;
+  color: ${(props) =>
+    props.Heading
+      ? props.theme.colors.background
+      : props.theme.colors.grey} !important;
+  margin-right: 10px;
+  cursor: ${(props) => (props.Heading ? "default" : "pointer")};
+
+  &::after {
+    content: ${(props) => (props.underline ? '""' : "none")};
+    position: absolute;
+    width: 0%;
+    height: 0.5px;
+    bottom: 0;
+    left: 0;
+    background-color: ${(props) => props.theme.colors.grey};
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: ${(props) => (props.underline ? "100%" : "0")};
+  }
+
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    font-size: 14px;
+  }
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    margin-top: ${(props) => (props.Heading ? "20px" : "0")};
+    font-size: 12px;
+  }
+`
 
 const FooterMail = styled.a`
   cursor: pointer;
@@ -43,49 +166,60 @@ const FooterMail = styled.a`
   }
 `;
 
-const ContactDiv = styled.div`
-  display: flex;
-  margin-top: 30px;
-  padding: 20px 0;
-`;
+const Footer = ({ Header }) => {
+  const headerRef = useRef(null);
+  const contactRef = useRef(null);
 
-const ContactTag = styled.a`
-  font-family: ${(props) => props.theme.fonts.caslon};
-  font-size: 24px;
-  margin-right: 30px;
-  position: relative;
-  cursor: pointer;
+  const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
+  const isContactInView = useInView(contactRef, {
+    once: true,
+    margin: "-100px",
+  });
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: ${(props) => props.theme.colors.background};
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-`;
-
-const Footer = ({Header}) => {
   return (
     <FooterSection>
       <FooterWrapper>
-        <FooterHeader>{Header} &nbsp;
+        <FooterHeader
+          ref={headerRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          {Header}&nbsp;
           <FooterMail href="mailto:swarupaa619yes@gmail.com">
             Let's talk.
           </FooterMail>
         </FooterHeader>
-        <ContactDiv>
-          <ContactTag>linkedin</ContactTag>
-          <ContactTag>Github</ContactTag>
-          <ContactTag>Instagram</ContactTag>
-        </ContactDiv>
+
+        <FooterContact
+          ref={contactRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isContactInView ? "show" : "hidden"}
+        >
+          <motion.div variants={tagVariants}>
+            <FooterContent Heading>Swarup Patil —</FooterContent>
+            <SubFooter>
+              <FooterLink underline to="/">Home</FooterLink>
+              <FooterLink underline to="/portfolio">Work</FooterLink>
+              <FooterLink underline to="/about">About</FooterLink>
+            </SubFooter>
+          </motion.div>
+          <motion.div variants={tagVariants}>
+            <FooterContent Heading>Cotact —</FooterContent>
+            <SubFooter contact>
+              <FooterContent>swaruppatil@gmail.com</FooterContent>
+              <FooterContent>+91 7208877440</FooterContent>
+            </SubFooter>
+          </motion.div>
+          <motion.div variants={tagVariants}>
+            <FooterContent Heading>Socials</FooterContent>
+            <SubFooter>
+              <FooterContent underline href="https://www.linkedin.com/in/swarup-santosh-patil/" target="_blank">linkedin</FooterContent>
+              <FooterContent underline href="https://github.com/Swarup-Patil" target="_blank">Github</FooterContent>
+            </SubFooter>
+          </motion.div>
+        </FooterContact>
       </FooterWrapper>
     </FooterSection>
   );

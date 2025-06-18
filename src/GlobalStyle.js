@@ -22,14 +22,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.primary};
     font-family: ${(props) => props.theme.fonts.graphik};
+    overflow-x: hidden;
   }
 
   a {
-      text-decoration:none;
+      text-decoration:none !important;
   }
 
   a:hover {
-    text-decoration:none;
+    text-decoration:none !important;
   }
 
   ul {
