@@ -34,6 +34,7 @@ const FooterWrapper = styled.div`
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     max-width: 300px;
+    padding: 30px 0 0;
   }
 `;
 
