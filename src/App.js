@@ -27,7 +27,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router>
+      <Router basename="/myportfolio">
         <ScrollToTop />
         <AnimatedRoutes />
       </Router>
