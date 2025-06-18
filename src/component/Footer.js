@@ -67,6 +67,7 @@ const FooterContact = styled(motion.div)`
 const SubFooter = styled.div`
   display: flex;
   margin-top: 10px;
+  margin-bottom: 20px;
   flex-direction: ${(props) => (props.contact ? "column" : "row")};
 `;
 
@@ -101,7 +102,7 @@ const FooterContent = styled.a`
   }
 
   @media ${(props) => props.theme.MediaQueries.xs} {
-    margin-top: ${(props) => (props.Heading ? "20px" : "0")};
+    margin-top: ${(props) => (props.Heading ? "20px" : "0")} !important;
     font-size: 12px;
   }
 `;
@@ -109,13 +110,12 @@ const FooterContent = styled.a`
 const FooterLink = styled(Link)`
   font-size: 16px;
   position: relative;
-  margin-bottom: 5px !important;
   color: ${(props) =>
     props.Heading
       ? props.theme.colors.background
       : props.theme.colors.grey} !important;
   margin-right: 10px;
-  cursor: ${(props) => (props.Heading ? "default" : "pointer")};
+  cursor: pointer;
 
   &::after {
     content: ${(props) => (props.underline ? '""' : "none")};
@@ -137,7 +137,6 @@ const FooterLink = styled(Link)`
   }
 
   @media ${(props) => props.theme.MediaQueries.xs} {
-    margin-top: ${(props) => (props.Heading ? "20px" : "0")};
     font-size: 12px;
   }
 `
@@ -198,7 +197,7 @@ const Footer = ({ Header }) => {
           animate={isContactInView ? "show" : "hidden"}
         >
           <motion.div variants={tagVariants}>
-            <FooterContent Heading>Swarup Patil —</FooterContent>
+            <FooterContent Heading >Swarup Patil —</FooterContent>
             <SubFooter>
               <FooterLink underline to="/">Home</FooterLink>
               <FooterLink underline to="/portfolio">Work</FooterLink>
@@ -206,14 +205,14 @@ const Footer = ({ Header }) => {
             </SubFooter>
           </motion.div>
           <motion.div variants={tagVariants}>
-            <FooterContent Heading>Cotact —</FooterContent>
+            <FooterContent Heading >Cotact —</FooterContent>
             <SubFooter contact>
               <FooterContent>swaruppatil@gmail.com</FooterContent>
               <FooterContent>+91 7208877440</FooterContent>
             </SubFooter>
           </motion.div>
           <motion.div variants={tagVariants}>
-            <FooterContent Heading>Socials</FooterContent>
+            <FooterContent Heading >Socials</FooterContent>
             <SubFooter>
               <FooterContent underline href="https://www.linkedin.com/in/swarup-santosh-patil/" target="_blank">linkedin</FooterContent>
               <FooterContent underline href="https://github.com/Swarup-Patil" target="_blank">Github</FooterContent>
