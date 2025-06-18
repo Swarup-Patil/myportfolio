@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation , Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import GlobalStyle from "./GlobalStyle";
