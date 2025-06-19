@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import transition from "../Transition";
+import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 import MainNavBar from "../component/MainNavBar";
@@ -35,7 +36,7 @@ const AboutFlex = styled.div`
     margin-bottom: ${(props) => (props.End ? "0" : "100px")};
   }
   @media ${(props) => props.theme.MediaQueries.xs} {
-     margin-bottom: ${(props) => (props.End ? "0" : "50px")};
+    margin-bottom: ${(props) => (props.End ? "0" : "50px")};
     flex-direction: ${(props) => (props.Column ? "column-reverse" : "column")};
   }
 `;
@@ -54,10 +55,11 @@ const AboutHeader = styled.h1`
   }
 `;
 
-const MeImage = styled.img`
+const MeImage = styled(motion.img)`
   height: 500px;
   width: auto;
   margin-left: 30px;
+  object-fit: cover;
 
   @media ${(props) => props.theme.MediaQueries.sm} {
     height: 400px;
@@ -79,7 +81,7 @@ const TechImage = styled.img`
     width: 350px;
     margin-right: 0px;
   }
-   @media ${(props) => props.theme.MediaQueries.xs} {
+  @media ${(props) => props.theme.MediaQueries.xs} {
     margin-top: 20px;
     width: 100%;
   }
@@ -102,7 +104,7 @@ const Quote = styled.div`
   }
 `;
 
-const AboutSubHeader = styled.h2`
+const AboutSubHeader = styled(motion.h2)`
   font-size: 35px;
   max-width: 800px;
   margin: 30px 0;
@@ -119,11 +121,11 @@ const AboutSubHeader = styled.h2`
   }
 `;
 
-const AboutPara = styled.p`
+const AboutPara = styled(motion.p)`
   font-size: 20px;
   max-width: 800px;
   margin-top: 30px;
-  line-height: 35px;
+  line-height: 30px;
 
   @media ${(props) => props.theme.MediaQueries.sm} {
     font-size: 16px;
@@ -139,7 +141,7 @@ const AboutPara = styled.p`
 `;
 
 const TeaImage = styled.img`
-  width: 500px;
+  width: 400px;
   height: auto;
   margin-right: 50px;
 
@@ -150,9 +152,15 @@ const TeaImage = styled.img`
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     width: 100%;
-    margin-right: 0
+    margin-right: 0;
   }
 `;
+
+const JioDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const About = () => {
   return (
@@ -166,11 +174,19 @@ const About = () => {
               <TypeAnimation sequence={[1000, "Swarup Patil"]} />
               ");
             </AboutHeader>
-            <AboutSubHeader>
+            <AboutSubHeader
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.75 }}
+            >
               Obsessed with JavaScript, performance, and second cups of tea.
             </AboutSubHeader>
 
-            <AboutPara>
+            <AboutPara
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 2 }}
+            >
               I started this journey back in 11th grade, when I wrote my first
               C++ program and realized how much I enjoyed solving problems with
               code. That first line? <br />
@@ -181,7 +197,12 @@ const About = () => {
               exploring ever since.
             </AboutPara>
           </div>
-          <MeImage src={Me} />
+          <MeImage
+            src={Me}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 2.25 }}
+          />
         </AboutFlex>
         <AboutFlex Column>
           <div>
@@ -220,8 +241,8 @@ const About = () => {
           something’s part of the system, I’ll figure out how it works.
         </AboutPara>
         <AboutFlex>
-          <div>
-            <img src={jio} style={{ margin: "50px 0" }} alt="jio"/>
+          <JioDiv>
+            <img src={jio} style={{ margin: "50px 0" }} alt="jio" />
             <AboutPara>
               After graduation, I joined Jio as part of the DevOps team, but
               early on, my manager recognized my strength in development and
@@ -232,7 +253,7 @@ const About = () => {
               with Docker and Kubernetes, and collaborated with teams to
               understand the backbone of scalable infrastructure.
             </AboutPara>
-          </div>
+          </JioDiv>
         </AboutFlex>
         <AboutFlex End>
           <TeaImage src={tea} />
