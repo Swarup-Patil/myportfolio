@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.js": "/myportfolio/static/js/main.61fee500.js",
+    "main.js": "/myportfolio/static/js/main.c45233da.js",
     "static/media/ocean.mp4": "/myportfolio/static/media/ocean.ad276da55aff30787b6c.mp4",
-    "static/media/tea.jpg": "/myportfolio/static/media/tea.87e182e27272d3fb8446.jpg",
-    "static/media/sieshome.png": "/myportfolio/static/media/sieshome.6a5c7662d8aa49bc0de4.png",
-    "static/media/internxpo.png": "/myportfolio/static/media/internxpo.52d0abd4e12334672600.png",
-    "static/media/travellog.png": "/myportfolio/static/media/travellog.12fce6007ca90dbebc35.png",
-    "static/media/bugsquash.png": "/myportfolio/static/media/bugsquash.c06c890f34ff9a89442f.png",
-    "static/media/bytecamp.png": "/myportfolio/static/media/bytecamp.881fe6a5510c5a2aee3f.png",
-    "static/media/me.jpg": "/myportfolio/static/media/me.d2ec4d76163f2bf2b1a5.jpg",
-    "static/media/hoodie.jpg": "/myportfolio/static/media/hoodie.da14245821a3b515a68b.jpg",
-    "static/media/techxter.png": "/myportfolio/static/media/techxter.b08a6a58546e497c4b31.png",
-    "static/media/webteam.jpg": "/myportfolio/static/media/webteam.1556f7be0affc34912f4.jpg",
-    "static/media/pnc.png": "/myportfolio/static/media/pnc.74bed197ca2e1f8156bd.png",
-    "static/media/pormethean.jpg": "/myportfolio/static/media/pormethean.886cf8b1a07284157f36.jpg",
+    "static/media/webteam.webp": "/myportfolio/static/media/webteam.9d0d30fd181854648793.webp",
+    "static/media/me.webp": "/myportfolio/static/media/me.c7467824f38848efc44d.webp",
+    "static/media/hoodie.webp": "/myportfolio/static/media/hoodie.bf2ba56cf6a09a930ee0.webp",
+    "static/media/pormethean.webp": "/myportfolio/static/media/pormethean.11c3794abc9829375f15.webp",
+    "static/media/tea.webp": "/myportfolio/static/media/tea.63feeaf91812468582b1.webp",
     "static/media/GraphikLCG-Regular.ttf": "/myportfolio/static/media/GraphikLCG-Regular.35faf011ef568c1b8540.ttf",
-    "static/media/jio.png": "/myportfolio/static/media/jio.e0940e0b09bf448dcc85.png",
+    "static/media/bugsquash.webp": "/myportfolio/static/media/bugsquash.131a75a739b8a68bc915.webp",
+    "static/media/techxter.webp": "/myportfolio/static/media/techxter.d5a368eea1ac0b7ddf75.webp",
+    "static/media/travellog.webp": "/myportfolio/static/media/travellog.45cc72e8e3f80192ee66.webp",
+    "static/media/sieshome.webp": "/myportfolio/static/media/sieshome.952ba9c22e42e38a95c2.webp",
     "static/media/CaslonDoric-Regular-Trial.otf": "/myportfolio/static/media/CaslonDoric-Regular-Trial.8a380ce837e70b13833d.otf",
-    "static/media/Frame.png": "/myportfolio/static/media/Frame.9957d0e120fb122dafab.png",
-    "static/media/automation.png": "/myportfolio/static/media/automation.88bac978a21341d9091b.png",
+    "static/media/internxpo.webp": "/myportfolio/static/media/internxpo.be3f2910c2ef11c18b21.webp",
+    "static/media/bytecamp.webp": "/myportfolio/static/media/bytecamp.adce56b6006539595cfe.webp",
+    "static/media/pnc.webp": "/myportfolio/static/media/pnc.02f5f8c5816325796626.webp",
+    "static/media/jio.webp": "/myportfolio/static/media/jio.42dfebfb5fb23fc60fb5.webp",
+    "static/media/Frame.webp": "/myportfolio/static/media/Frame.5a0177c5f6719dfcf762.webp",
+    "static/media/automation.webp": "/myportfolio/static/media/automation.017b6065d5cd0964c8fa.webp",
     "index.html": "/myportfolio/index.html",
-    "main.61fee500.js.map": "/myportfolio/static/js/main.61fee500.js.map"
+    "main.c45233da.js.map": "/myportfolio/static/js/main.c45233da.js.map"
   },
   "entrypoints": [
-    "static/js/main.61fee500.js"
+    "static/js/main.c45233da.js"
   ]
 }
