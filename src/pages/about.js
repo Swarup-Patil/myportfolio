@@ -6,11 +6,11 @@ import { TypeAnimation } from "react-type-animation";
 import MainNavBar from "../component/MainNavBar";
 import Footer from "../component/Footer";
 
-import Me from "../image/me.jpg";
-import webteam from "../image/webteam.jpg";
-import hoodie from "../image/hoodie.jpg";
-import jio from "../image/jio.png";
-import tea from "../image/tea.jpg";
+import Me from "../image/me.webp";
+import webteam from "../image/webteam.webp";
+import hoodie from "../image/hoodie.webp";
+import jio from "../image/jio.webp";
+import tea from "../image/tea.webp";
 
 const AboutContainer = styled.div`
   max-width: 1200px;

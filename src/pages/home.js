@@ -141,6 +141,7 @@ const Home = () => {
 
     @media ${(props) => props.theme.MediaQueries.sm} {
       margin: 30px auto;
+      align-items: center;
     }
 
     @media ${(props) => props.theme.MediaQueries.xs} {
@@ -192,7 +193,6 @@ const Home = () => {
   const Sectionpara = styled(motion.p)`
     font-family: ${(props) => props.theme.fonts.graphik};
     font-size: 22px;
-    word-spacing: 5px;
     line-height: 35px;
 
     @media ${(props) => props.theme.MediaQueries.sm} {
@@ -248,7 +248,7 @@ const Home = () => {
               <Sectionpara
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
                 My journey as a &lt;Developer/&gt; has taken shape through

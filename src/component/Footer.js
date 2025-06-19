@@ -75,12 +75,11 @@ const SubFooter = styled.div`
 const FooterContent = styled.a`
   font-size: 16px;
   position: relative;
-  margin-bottom: 10px;
   color: ${(props) =>
     props.Heading
       ? props.theme.colors.background
       : props.theme.colors.grey} !important;
-  margin-right: 10px;
+  margin: ${(props) => (props.Heading ? "20px 10px 10px 0" : "0 10px 10px 0")} !important;
   cursor: ${(props) => (props.Heading ? "default" : "pointer")};
 
   &::after {
@@ -103,8 +102,8 @@ const FooterContent = styled.a`
   }
 
   @media ${(props) => props.theme.MediaQueries.xs} {
-    margin-top: ${(props) => (props.Heading ? "20px" : "0")} !important;
     font-size: 12px;
+    margin-top: ${(props) => (props.Heading ? "20px" : "0")} !important;
   }
 `;
 
@@ -208,8 +207,8 @@ const Footer = ({ Header }) => {
           <motion.div variants={tagVariants}>
             <FooterContent Heading >Cotact —</FooterContent>
             <SubFooter contact>
-              <FooterContent>swaruppatil@gmail.com</FooterContent>
-              <FooterContent>+91 7208877440</FooterContent>
+              <FooterContent href="mailto:swarupaa619yes@gmail.com">swaruppatil@gmail.com</FooterContent>
+              <FooterContent href="tel:+917208877440">+91 7208877440</FooterContent>
             </SubFooter>
           </motion.div>
           <motion.div variants={tagVariants}>

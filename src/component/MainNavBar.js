@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useLocation, Link } from "react-router-dom";
 
@@ -90,7 +90,6 @@ const NavItem = styled(Link)`
     display: none;
   }
 `;
-
 
 const BurgerWrapper = styled.button`
   background-color: transparent;
@@ -222,7 +221,7 @@ const FooterContent = styled.p`
   font-size: 12px;
   position: relative;
   color: ${(props) =>
-  props.Heading ? props.theme.colors.background : props.theme.colors.grey};
+    props.Heading ? props.theme.colors.background : props.theme.colors.grey};
   margin-top: ${(props) => (props.Heading ? "20px" : "5px")};
   cursor: ${(props) => (props.Heading ? "default" : "pointer")};
   margin-right: 10px;
@@ -232,6 +231,21 @@ const MainNavBar = () => {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   return (
     <>
