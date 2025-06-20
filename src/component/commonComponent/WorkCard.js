@@ -1,12 +1,10 @@
-// WorkCard.js
-import React from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+
 const WorkImage = styled.img`
   height: 500px;
-  margin: 0 0 1rem;
-  overflow: hidden;
   object-fit: cover;
   width: 100%;
   transition: transform 0.4s ease;
@@ -38,25 +36,36 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const ViewOverlay = styled.div`
-  position: absolute;
-  bottom: -25px;
-  right: -5px;
-  background-color: rgba(255, 165, 0, 0.5);
-  color: white;
-  padding: 25px 20px;
-  border-radius: 50%;
-  font-size: 10px;
-`;
-
 const StyledWorkTag = styled(motion.a)`
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
+
   &:hover ${WorkImage} {
     transform: scale(1.1);
   }
+
   &:hover ${ImageWrapper} {
     transform: scale(0.99);
+  }
+`;
+
+const ViewOverlay = styled.div`
+  position: absolute;
+  background-color: rgba(255, 165, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    display: none;
   }
 `;
 
@@ -79,7 +88,7 @@ const Viewbutton = styled.a`
   display: none;
   position: relative;
 
-  @media ${(props) => props.theme.MediaQueries.xs} {
+  @media ${(props) => props.theme.MediaQueries.sm} {
     display: inline;
     font-size: 16px;
     font-weight: 600;
@@ -89,15 +98,15 @@ const Viewbutton = styled.a`
   }
 
   &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      background-color: ${(props) => props.theme.colors.primary};
-      transition: width 0.3s ease-in-out;
-    }
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: ${(props) => props.theme.colors.primary};
+    transition: width 0.3s ease-in-out;
+  }
 `;
 
 const WorkServices = styled.h3`
@@ -107,9 +116,12 @@ const WorkServices = styled.h3`
   line-height: 1.3;
   font-family: ${(props) => props.theme.fonts.graphik};
 
+  @media ${(props) => props.theme.MediaQueries.sm} {
+    margin-bottom: 10px;
+  }
+
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 11px;
-    margin-bottom: 10px;
   }
 `;
 
@@ -124,17 +136,37 @@ const IconLogo = styled.img`
   }
 `;
 
-const WorkCard = ({ imageSrc, title, description, icons, link }) => {
-  // const [coords, setCoords] = useState({ x: 0, y: 0 });
-  // const [showOverlay, setShowOverlay] = useState(false);
+const Arrow = styled.svg`
+  width: 15px;
+  fill: ${(props) => props.theme.colors.background} !important;
+  height: auto;
+  margin-top: 5px;
+`;
 
-  // const handleMouseMove = (e) => {
-  //   const bounds = e.currentTarget.getBoundingClientRect();
-  //   setCoords({
-  //     x: e.clientX - bounds.left,
-  //     y: e.clientY - bounds.top,
-  //   });
-  // };
+const WorkCard = ({ imageSrc, title, description, icons, link }) => {
+  const coordsRef = useRef({ x: 0, y: 0 });
+  const animationRef = useRef(null);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const bounds = e.currentTarget.getBoundingClientRect();
+    coordsRef.current = {
+      x: e.clientX - bounds.left,
+      y: e.clientY - bounds.top,
+    };
+
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    animationRef.current = requestAnimationFrame(() => {
+      setCoords({ ...coordsRef.current });
+    });
+  };
+
+  const handleMouseEnter = () => setShowOverlay(true);
+  const handleMouseLeave = () => setShowOverlay(false);
 
   return (
     <StyledWorkTag
@@ -144,6 +176,9 @@ const WorkCard = ({ imageSrc, title, description, icons, link }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <ImageWrapper>
         <WorkImage src={require(`../../image/${imageSrc}`)} />
@@ -153,10 +188,17 @@ const WorkCard = ({ imageSrc, title, description, icons, link }) => {
       <WorkServices>
         {icons.map((icon, index) => (
           <IconLogo key={index} src={icon} />
-        ))}
+        ))} 
       </WorkServices>
       <Viewbutton>View Project</Viewbutton>
-      {/* <ViewOverlay>view</ViewOverlay> */}
+      {showOverlay && (
+        <ViewOverlay style={{ left: `${coords.x}px`, top: `${coords.y}px` }}>
+          view project{" "}
+          <Arrow viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 15.586 6.707 5.293 5.293 6.707 15.586 17H7v2h12V7h-2v8.586z" />
+          </Arrow>
+        </ViewOverlay>
+      )}
     </StyledWorkTag>
   );
 };

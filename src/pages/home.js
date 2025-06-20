@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import transition from "../Transition";
 
-import MainNavBar from "../component/MainNavBar";
+import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 import Work from "../component/Work";
 
@@ -220,7 +220,7 @@ const Home = () => {
 
   return (
     <>
-      <MainNavBar />
+      <NavBar />
       <Container>
         <HeroSection>
           <Header

@@ -4,7 +4,7 @@ import transition from "../Transition";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
-import MainNavBar from "../component/MainNavBar";
+import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 
 import Me from "../image/me.webp";
@@ -165,7 +165,7 @@ const JioDiv = styled.div`
 const About = () => {
   return (
     <>
-      <MainNavBar />
+      <NavBar />
       <AboutContainer>
         <AboutFlex>
           <div>

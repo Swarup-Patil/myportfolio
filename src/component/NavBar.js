@@ -4,13 +4,13 @@ import { useLocation, Link } from "react-router-dom";
 
 const Navbar = styled.div`
   display: flex;
-  max-width: 1400px;
+  max-width: 1450px;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.caslon};
   color: ${(props) => props.theme.colors.primary};
-  padding: 40px 50px;
+  padding: 40px 20px;
 
   @media ${(props) => props.theme.MediaQueries.sm} {
     padding: 20px 30px;
@@ -234,7 +234,7 @@ const FooterContent = styled.a`
   margin-right: 10px;
 `;
 
-const MainNavBar = () => {
+const NavBar = () => {
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   const [isOpen, setIsOpen] = useState(false);
@@ -323,7 +323,7 @@ const MainNavBar = () => {
               href="https://www.linkedin.com/in/swarup-santosh-patil/"
               target="_blank"
             >
-              linkedin
+              Linkedin
             </FooterContent>
             <FooterContent
               underline
@@ -339,4 +339,4 @@ const MainNavBar = () => {
   );
 };
 
-export default MainNavBar;
+export default NavBar;

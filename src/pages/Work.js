@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import transition from "../Transition";
 
-import MainNavBar from "../component/MainNavBar";
+import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 import WorkCard from "../component/commonComponent/WorkCard";
 
 import projects from "../data/Project.json";
 
 const WorkContainer = styled.div`
-  max-width: 1400px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 0 20px;
 `;
@@ -25,11 +25,12 @@ const WorkHeader = styled.h1`
 `;
 
 const WorkGrid = styled.div`
-  column-gap: 45px;
+  column-gap: 40px;
   display: grid;
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
   margin-bottom: 100px;
+    grid-template-columns: repeat(2, 1fr);
 
   @media ${(props) => props.theme.MediaQueries.sm} {
     grid-template-columns: repeat(1, 1fr);
@@ -39,7 +40,7 @@ const WorkGrid = styled.div`
 const Work = () => {
   return (
     <>
-      <MainNavBar />
+      <NavBar />
       <WorkContainer>
         <WorkHeader>My Works</WorkHeader>
         <WorkGrid>

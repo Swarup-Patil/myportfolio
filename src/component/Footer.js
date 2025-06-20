@@ -214,7 +214,7 @@ const Footer = ({ Header }) => {
           <motion.div variants={tagVariants}>
             <FooterContent Heading >Socials</FooterContent>
             <SubFooter>
-              <FooterContent underline href="https://www.linkedin.com/in/swarup-santosh-patil/" target="_blank">linkedin</FooterContent>
+              <FooterContent underline href="https://www.linkedin.com/in/swarup-santosh-patil/" target="_blank">Linkedin</FooterContent>
               <FooterContent underline href="https://github.com/Swarup-Patil" target="_blank">Github</FooterContent>
             </SubFooter>
           </motion.div>

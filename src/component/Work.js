@@ -8,9 +8,12 @@ import projects from "../data/Project.json";
 import { Link } from "react-router-dom";
 
 const MainContainer = styled.div`
-  max-width: 950px;
+  column-gap: 45px;
+  display: grid;
+  max-width: 970px;
+  margin: 0 auto;
   padding: 0 20px;
-  margin: 100px auto 50px;
+  margin-bottom: 100px;
 `;
 
 const MoreWorkDiv = styled(motion.div)`
