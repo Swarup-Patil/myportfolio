@@ -8,7 +8,6 @@ const WorkImage = styled.img`
   margin: 0 0 1rem;
   overflow: hidden;
   object-fit: cover;
-  position: relative;
   width: 100%;
   transition: transform 0.4s ease;
 
@@ -39,23 +38,20 @@ const ImageWrapper = styled.div`
   }
 `;
 
-// const ViewOverlay = styled.div`
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   background-color: rgba(255, 165, 0, 0.5);
-//   color: white;
-//   padding: 35px 30px;
-//   border-radius: 50%;
-//   font-size: 12px;
-//   pointer-events: none;
-//   transition: opacity 0.2s ease;
-//   z-index: 5;
-//   user-select: none;
-//   white-space: nowrap;
-// `;
+const ViewOverlay = styled.div`
+  position: absolute;
+  bottom: -25px;
+  right: -5px;
+  background-color: rgba(255, 165, 0, 0.5);
+  color: white;
+  padding: 25px 20px;
+  border-radius: 50%;
+  font-size: 10px;
+`;
 
 const StyledWorkTag = styled(motion.a)`
   cursor: pointer;
+  position: relative;
   &:hover ${WorkImage} {
     transform: scale(1.1);
   }
@@ -67,7 +63,7 @@ const StyledWorkTag = styled(motion.a)`
 const WorkTitle = styled.h2`
   font-size: 18px;
   font-family: ${(props) => props.theme.fonts.graphik};
-   color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 16px;
@@ -75,7 +71,33 @@ const WorkTitle = styled.h2`
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 14px;
+    line-height: 18px;
   }
+`;
+
+const Viewbutton = styled.a`
+  display: none;
+  position: relative;
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    display: inline;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    font-family: ${(props) => props.theme.fonts.caslon};
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: ${(props) => props.theme.colors.primary};
+      transition: width 0.3s ease-in-out;
+    }
 `;
 
 const WorkServices = styled.h3`
@@ -87,6 +109,7 @@ const WorkServices = styled.h3`
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 11px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -101,7 +124,7 @@ const IconLogo = styled.img`
   }
 `;
 
-const WorkCard = ({ imageSrc, title, description, icons , link }) => {
+const WorkCard = ({ imageSrc, title, description, icons, link }) => {
   // const [coords, setCoords] = useState({ x: 0, y: 0 });
   // const [showOverlay, setShowOverlay] = useState(false);
 
@@ -121,17 +144,9 @@ const WorkCard = ({ imageSrc, title, description, icons , link }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      // onMouseMove={handleMouseMove}
-      // onMouseEnter={() => setShowOverlay(true)}
-      // onMouseLeave={() => setShowOverlay(false)}
     >
       <ImageWrapper>
         <WorkImage src={require(`../../image/${imageSrc}`)} />
-        {/* {showOverlay && (
-          <ViewOverlay style={{ top: coords.y, left: coords.x }}>
-            View
-          </ViewOverlay>
-        )} */}
       </ImageWrapper>
       <WorkTitle>{title}</WorkTitle>
       <WorkServices>{description}</WorkServices>
@@ -140,6 +155,8 @@ const WorkCard = ({ imageSrc, title, description, icons , link }) => {
           <IconLogo key={index} src={icon} />
         ))}
       </WorkServices>
+      <Viewbutton>View Project</Viewbutton>
+      {/* <ViewOverlay>view</ViewOverlay> */}
     </StyledWorkTag>
   );
 };

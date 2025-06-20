@@ -215,15 +215,22 @@ const NavNumber = styled.p`
 
 const SubFooter = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
-const FooterContent = styled.p`
+const FooterHeader = styled.p`
   font-size: 12px;
   position: relative;
-  color: ${(props) =>
-    props.Heading ? props.theme.colors.background : props.theme.colors.grey};
-  margin-top: ${(props) => (props.Heading ? "20px" : "5px")};
-  cursor: ${(props) => (props.Heading ? "default" : "pointer")};
+  color: ${(props) => props.theme.colors.background};
+  margin-top: 20px;
+`;
+
+const FooterContent = styled.a`
+  font-size: 12px;
+  position: relative;
+  color: ${(props) => props.theme.colors.grey};
+  margin-top: 5px;
+  cursor: pointer;
   margin-right: 10px;
 `;
 
@@ -234,16 +241,17 @@ const MainNavBar = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
       document.body.style.position = "fixed";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
       document.body.style.position = "";
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflowY = "auto";
+      document.body.style.position = "";
     };
   }, [isOpen]);
 
@@ -300,14 +308,30 @@ const MainNavBar = () => {
                 About <NavNumber>03</NavNumber>
               </NavTags>
             </NavListDiv>
-            <FooterContent Heading>Cotact —</FooterContent>
-            <FooterContent>swaruppatil@gmail.com</FooterContent>
-            <FooterContent>+91 7208877440</FooterContent>
-            <FooterContent Heading>Socials</FooterContent>
+            <FooterHeader Heading>Cotact —</FooterHeader>
             <SubFooter>
-              <FooterContent underline>linkedin</FooterContent>
-              <FooterContent underline>Instagram</FooterContent>
+              <FooterContent href="mailto:swarupaa619yes@gmail.com">
+                swaruppatil@gmail.com
+              </FooterContent>
+              <FooterContent href="tel:+917208877440">
+                +91 7208877440
+              </FooterContent>
             </SubFooter>
+            <FooterHeader Heading>Socials</FooterHeader>
+            <FooterContent
+              underline
+              href="https://www.linkedin.com/in/swarup-santosh-patil/"
+              target="_blank"
+            >
+              linkedin
+            </FooterContent>
+            <FooterContent
+              underline
+              href="https://github.com/Swarup-Patil"
+              target="_blank"
+            >
+              Github
+            </FooterContent>
           </NavWrapper>
         </NavbarInner>
       </SlideMenu>

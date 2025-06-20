@@ -183,10 +183,22 @@ const Home = () => {
       content: "";
       position: absolute;
       width: 100%;
-      height: 4px;
+      height: 3px;
       bottom: 40%;
       left: 0;
       background-color: ${(props) => props.theme.colors.background};
+    }
+
+     @media ${(props) => props.theme.MediaQueries.sm} {
+      &::before {
+         height: 3px;
+      }
+    }
+
+    @media ${(props) => props.theme.MediaQueries.xs} {
+       &::before {
+         height: 2px;
+      }
     }
   `;
 
@@ -217,7 +229,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.75 }}
           >
             Full Stack &lt;<Boldheader>Developer</Boldheader>/&gt; based in
-            Mumbai,India. I have worked on a wide range of projects with a focus
+            Mumbai, India. I have worked on a wide range of projects with a focus
             on crafting seamless user experiences with Clean , Elegant and
             Efficient code
           </Header>
@@ -256,7 +268,7 @@ const Home = () => {
                 building my college portal—an ambitious project that sparked my
                 passion for both frontend and backend development. That early
                 initiative laid the foundation for my skills, which I’ve since
-                sharpened while working at Jio, where I contributed to scalable
+                sharpened while working at Jio Platform Ltd, where I contributed towards scalable
                 backend systems, internal tools , Kubernetes deployments, and
                 collaborated on frontend features to enhance user experience.
                 Each step has deepened my understanding of full stack

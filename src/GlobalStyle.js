@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.primary};
     font-family: ${(props) => props.theme.fonts.graphik};
-    overflow-x: hidden;
+    overflow-x: hidden !important;
   }
 
   a {
