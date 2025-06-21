@@ -2,7 +2,6 @@
   "name": "myportfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Swarup-Patil.github.io/myportfolio",
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.1.0",
     "@testing-library/dom": "^10.4.0",
