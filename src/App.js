@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route, useLocation , Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { Analytics } from '@vercel/analytics/react';
 import theme from "./theme";
 import GlobalStyle from "./GlobalStyle";
 import ScrollToTop from "./ScrolltoTop";
@@ -8,6 +9,7 @@ import ScrollToTop from "./ScrolltoTop";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Work from "./pages/Work";
+
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -33,6 +35,7 @@ function App() {
         <ScrollToTop />
         <AnimatedRoutes />
       </Router>
+      <Analytics />
     </ThemeProvider>
   );
 }
