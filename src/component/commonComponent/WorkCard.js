@@ -22,7 +22,7 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   height: 500px;
   width: 100%;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   margin-bottom: 1rem;
   transition: transform 0.4s ease;
 

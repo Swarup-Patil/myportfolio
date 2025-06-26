@@ -17,7 +17,7 @@ const WorkContainer = styled.div`
 const WorkHeader = styled.h1`
   font-size: 80px;
   font-weight: 200;
-  margin: 50px 0 0;
+  margin: 50px 0 40px;
   font-family: ${(props) => props.theme.fonts.caslon};
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 55px;
@@ -26,6 +26,7 @@ const WorkHeader = styled.h1`
 
 const WorkGrid = styled.div`
   column-gap: 40px;
+  row-gap: 80px;
   display: grid;
   /* max-width: 900px; */
   margin: 0 auto;

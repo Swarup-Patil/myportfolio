@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 const MainContainer = styled.div`
   column-gap: 45px;
+  row-gap: 80px;
   display: grid;
   max-width: 970px;
   margin: 0 auto;
@@ -19,7 +20,7 @@ const MainContainer = styled.div`
 const MoreWorkDiv = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 `;
 
 const MoreWork = styled(Link)`

@@ -44,8 +44,10 @@ const FooterHeader = styled(motion.h1)`
   font-weight: 100;
   max-width: 900px;
   margin: 0 auto;
+  text-align: center;
 
   @media ${(props) => props.theme.MediaQueries.sm} {
+    text-align: left;
     max-width: 500px;
     font-size: 30px;
   }

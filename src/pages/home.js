@@ -115,6 +115,7 @@ const Home = () => {
     overflow: hidden;
     color: ${(props) => props.theme.colors.background};
     padding: 0 20px;
+    margin-bottom: 80px;
   `;
 
   const VideoBackground = styled.video`
