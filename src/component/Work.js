@@ -15,6 +15,10 @@ const MainContainer = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   margin-bottom: 100px;
+
+  @media ${(props) => props.theme.MediaQueries.xs} {
+    row-gap: 50px;
+  }
 `;
 
 const MoreWorkDiv = styled(motion.div)`

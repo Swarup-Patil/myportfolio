@@ -32,7 +32,7 @@ const ImageWrapper = styled.div`
 
   @media ${(props) => props.theme.MediaQueries.xs} {
     height: 295px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 `;
 
