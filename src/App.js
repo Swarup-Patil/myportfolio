@@ -11,6 +11,7 @@ import About from "./pages/about";
 import Work from "./pages/Work";
 
 
+
 function AnimatedRoutes() {
   const location = useLocation();
 

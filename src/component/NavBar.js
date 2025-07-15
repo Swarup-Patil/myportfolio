@@ -31,7 +31,7 @@ const NavList = styled.li`
   margin-right: 30px;
   font-weight: 600;
   cursor: pointer;
-  z-index: 5;
+  z-index: 65;
   transition: color 0.3s ease-in-out;
   transition-delay: 0.3s;
 
@@ -93,7 +93,7 @@ const NavItem = styled(Link)`
 
 const BurgerWrapper = styled.button`
   background-color: transparent;
-  z-index: 5;
+  z-index: 65;
   border: none;
   cursor: pointer;
   display: flex;
@@ -160,7 +160,7 @@ const SlideMenu = styled.section`
   position: fixed;
   top: 0;
   right: ${(props) => (props.isOpen ? "0%" : "-100%")};
-  z-index: 2;
+  z-index: 60;
   transition: right 0.5s ease-in-out;
 `;
 

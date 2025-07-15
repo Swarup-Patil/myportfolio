@@ -39,6 +39,7 @@ const ImageWrapper = styled.div`
 const StyledWorkTag = styled(motion.a)`
   position: relative;
   cursor: pointer;
+  z-index: 55;
 
   &:hover ${WorkImage} {
     transform: scale(1.1);
@@ -51,7 +52,7 @@ const StyledWorkTag = styled(motion.a)`
 
 const ViewOverlay = styled.div`
   position: absolute;
-  background-color: rgba(255, 165, 0, 0.8);
+  background-color: rgba(255, 165, 0, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +63,7 @@ const ViewOverlay = styled.div`
   border-radius: 50%;
   font-size: 12px;
   pointer-events: none;
-  z-index: 10;
+  z-index: 102;
   transform: translate(-50%, -50%);
   @media ${(props) => props.theme.MediaQueries.sm} {
     display: none;

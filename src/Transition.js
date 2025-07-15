@@ -9,7 +9,7 @@ const SlideIn = styled(motion.div)`
   height: 100vh;
   background: ${(props) => props.theme.colors.primary};
   transform-origin: bottom;
-  z-index: 100;
+  z-index: 1000;
 `;
 
 const SlideOut = styled(motion.div)`
@@ -20,7 +20,7 @@ const SlideOut = styled(motion.div)`
   height: 100vh;
   background: ${(props) => props.theme.colors.primary};
   transform-origin: top;
-  z-index: 100;
+  z-index: 1000;
 `;
 
 const transition = (OgComponent) => {

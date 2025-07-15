@@ -81,7 +81,8 @@ const FooterContent = styled.a`
     props.Heading
       ? props.theme.colors.background
       : props.theme.colors.grey} !important;
-  margin: ${(props) => (props.Heading ? "20px 10px 10px 0" : "0 10px 10px 0")} !important;
+  margin: ${(props) =>
+    props.Heading ? "20px 10px 10px 0" : "0 10px 10px 0"} !important;
   cursor: ${(props) => (props.Heading ? "default" : "pointer")};
 
   &::after {
@@ -141,7 +142,7 @@ const FooterLink = styled(Link)`
   @media ${(props) => props.theme.MediaQueries.xs} {
     font-size: 12px;
   }
-`
+`;
 
 const FooterMail = styled.a`
   cursor: pointer;
@@ -199,25 +200,47 @@ const Footer = ({ Header }) => {
           animate={isContactInView ? "show" : "hidden"}
         >
           <motion.div variants={tagVariants}>
-            <FooterContent Heading >Swarup Patil —</FooterContent>
+            <FooterContent Heading>Swarup Patil —</FooterContent>
             <SubFooter>
-              <FooterLink underline to="/">Home</FooterLink>
-              <FooterLink underline to="/portfolio">Work</FooterLink>
-              <FooterLink underline to="/about">About</FooterLink>
+              <FooterLink underline to="/">
+                Home
+              </FooterLink>
+              <FooterLink underline to="/portfolio">
+                Work
+              </FooterLink>
+              <FooterLink underline to="/about">
+                About
+              </FooterLink>
             </SubFooter>
           </motion.div>
           <motion.div variants={tagVariants}>
-            <FooterContent Heading >Cotact —</FooterContent>
+            <FooterContent Heading>Cotact —</FooterContent>
             <SubFooter contact>
-              <FooterContent href="mailto:swarupaa619yes@gmail.com">swaruppatil@gmail.com</FooterContent>
-              <FooterContent href="tel:+917208877440">+91 7208877440</FooterContent>
+              <FooterContent href="mailto:swarupaa619yes@gmail.com">
+                swarupaa619yes@gmail.com
+              </FooterContent>
+              <FooterContent href="tel:+917208877440">
+                +91 7208877440
+              </FooterContent>
             </SubFooter>
           </motion.div>
           <motion.div variants={tagVariants}>
-            <FooterContent Heading >Socials</FooterContent>
+            <FooterContent Heading>Socials</FooterContent>
             <SubFooter>
-              <FooterContent underline href="https://www.linkedin.com/in/swarup-santosh-patil/" target="_blank">Linkedin</FooterContent>
-              <FooterContent underline href="https://github.com/Swarup-Patil" target="_blank">Github</FooterContent>
+              <FooterContent
+                underline
+                href="https://www.linkedin.com/in/swarup-santosh-patil/"
+                target="_blank"
+              >
+                Linkedin
+              </FooterContent>
+              <FooterContent
+                underline
+                href="https://github.com/Swarup-Patil"
+                target="_blank"
+              >
+                Github
+              </FooterContent>
             </SubFooter>
           </motion.div>
         </FooterContact>

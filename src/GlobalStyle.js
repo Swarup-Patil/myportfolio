@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
   *, *::before, *::after {
     box-sizing: border-box;
+    /* cursor: none; */
   }
 
   html, body {

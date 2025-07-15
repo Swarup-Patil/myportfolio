@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import transition from "../Transition";
 
 import NavBar from "../component/NavBar";
+import CustomCursor from "../component/commonComponent/CustomCursor";
 import Footer from "../component/Footer";
 import WorkCard from "../component/commonComponent/WorkCard";
 
@@ -41,6 +41,7 @@ const WorkGrid = styled.div`
 const Work = () => {
   return (
     <>
+      <CustomCursor />
       <NavBar />
       <WorkContainer>
         <WorkHeader>My Works</WorkHeader>

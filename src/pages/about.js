@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
 import NavBar from "../component/NavBar";
+import CustomCursor from "../component/commonComponent/CustomCursor";
 import Footer from "../component/Footer";
 
 import Me from "../image/me.webp";
@@ -160,11 +161,12 @@ const JioDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const About = () => {
   return (
     <>
+      <CustomCursor />
       <NavBar />
       <AboutContainer>
         <AboutFlex>
